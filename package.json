@@ -1,0 +1,14 @@
+{
+  "name": "generated-types",
+  "version": "0.0.0",
+  "description": "Generated types for TypeScript",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "generate": "node generate.js",
+    "prepublishOnly": "node generate.js"
+  },
+  "devDependencies": {
+    "iter-tools": "^6.1.4"
+  }
+}

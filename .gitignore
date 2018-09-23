@@ -16,6 +16,7 @@ temp.*
 *.temp
 *.tern-project
 *.tern-project.json
+index.d.ts
 
 # Logs
 logs
