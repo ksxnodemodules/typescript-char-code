@@ -18,8 +18,8 @@ const Digit = union(iter.range({ start: 0, end: 10 }))
 const Byte = union(iter.range({ start: -128, end: 128 }))
 const SignedByte = 'Byte'
 const UnsignedByte = union(ascii)
-const AsciiNumbers = 'UnsignedByte'
-const AsciiCharacters = union(iter.map(codestr, ascii))
+const AsciiNumber = 'UnsignedByte'
+const AsciiCharacter = union(iter.map(codestr, ascii))
 const LowerCaseAlphabet = union(iter.map(codestr, lowerCaseAlphabetCodes))
 const UpperCaseAlphabet = union(iter.map(codestr, upperCaseAlphabetCodes))
 
@@ -28,8 +28,8 @@ const code = Object.entries({
   Byte,
   SignedByte,
   UnsignedByte,
-  AsciiNumbers,
-  AsciiCharacters,
+  AsciiNumber,
+  AsciiCharacter,
   LowerCaseAlphabet,
   UpperCaseAlphabet
 })
