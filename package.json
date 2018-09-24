@@ -22,6 +22,7 @@
   "homepage": "https://github.com/ksxnodemodules/generated-types#readme",
   "scripts": {
     "generate": "node generate.js",
+    "build": "node generate.js",
     "prepublishOnly": "node generate.js"
   },
   "devDependencies": {
