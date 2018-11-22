@@ -10,7 +10,7 @@ const codestr = x => mkstr(String.fromCharCode(x))
 const dclfn = (name, param, ret) => `export declare function ${name} (x: ${param}): ${ret}`
 const docstr = (fn, comments) => ['/**', ...comments.map(x => ' * ' + x), ' */', fn].join('\n')
 
-const ascii = Array.from(iter.range(256))
+const ascii = Array.from(iter.range(1 << 8))
 
 const pairs = ascii
   .map(code => ({ code, char: codestr(code) }))
