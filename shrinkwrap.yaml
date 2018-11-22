@@ -1,4 +1,5 @@
 devDependencies:
+  '@types/node': 10.12.10
   iter-tools: 6.1.4
 packages:
   /@babel/runtime/7.0.0:
@@ -7,6 +8,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-7hGhzlcmg01CvH1EHdSPVXYX1aJ8KCEyz6I9xYIi/asDtzBPMyMhVibhM/K6g/5qnKBwjZtp10bNZIEFTRW1MA==
+  /@types/node/10.12.10:
+    dev: true
+    resolution:
+      integrity: sha512-8xZEYckCbUVgK8Eg7lf5Iy4COKJ5uXlnIOnePN0WUwSQggy9tolM+tDJf7wMOnT/JT/W9xDYIaYggt3mRV2O5w==
   /clone-regexp/2.1.0:
     dependencies:
       is-regexp: 2.0.0
@@ -69,4 +74,5 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  '@types/node': ^10.12.10
   iter-tools: ^6.1.4
