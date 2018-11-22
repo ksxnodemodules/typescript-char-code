@@ -7,34 +7,36 @@ const iter = require('iter-tools')
 
 const mkstr = x => JSON.stringify(String(x))
 const codestr = x => mkstr(String.fromCharCode(x))
-const union = iterable => Array.from(iterable).join(' | ')
-const declare = (name, definition) => `export type ${name} = ${definition};`
+const dclfn = (name, param, ret) => `export declare function ${name} (x: ${param}): ${ret}`
+const docstr = (fn, comments) => ['/**', ...comments.map(x => ' * ' + x), ' */', fn].join('\n')
 
 const ascii = Array.from(iter.range(255))
-const lowerCaseAlphabetCodes = iter.range({ start: 'a'.charCodeAt(), end: 'z'.charCodeAt() + 1 })
-const upperCaseAlphabetCodes = iter.range({ start: 'A'.charCodeAt(), end: 'Z'.charCodeAt() + 1 })
 
-const Digit = union(iter.range({ start: 0, end: 10 }))
-const Byte = union(iter.range({ start: -128, end: 128 }))
-const SignedByte = 'Byte'
-const UnsignedByte = union(ascii)
-const AsciiNumber = 'UnsignedByte'
-const AsciiCharacter = union(iter.map(codestr, ascii))
-const LowerCaseAlphabet = union(iter.map(codestr, lowerCaseAlphabetCodes))
-const UpperCaseAlphabet = union(iter.map(codestr, upperCaseAlphabetCodes))
+const pairs = ascii
+  .map(code => ({ code, char: codestr(code) }))
+  .concat({ code: 'number', char: 'string' })
 
-const code = Object.entries({
-  Digit,
-  Byte,
-  SignedByte,
-  UnsignedByte,
-  AsciiNumber,
-  AsciiCharacter,
-  LowerCaseAlphabet,
-  UpperCaseAlphabet
-})
-  .map(([name, definition]) => declare(name, definition))
+const ord = pairs
+  .map(({ code, char }) => dclfn('ord', char, code))
   .join('\n')
+
+const chr = pairs
+  .map(({ code, char }) => dclfn('chr', code, char))
+  .join('\n')
+
+const code = [
+  docstr(ord, [
+    'Return the Unicode code point for one-character string',
+    '@param {string} x A one-character string',
+    '@returns {number} Code point of `x`'
+  ]),
+
+  docstr(chr, [
+    'Return a Unicode string of one character with ordinal `x`',
+    '@param {number} x An ordinal number between `0` and `0x10FFFF`',
+    '@returns {string} A string of one character with ordinal `x`'
+  ])
+].join('\n\n')
 
 fs.writeFileSync(
   path.join(__dirname, 'index.d.ts'),
