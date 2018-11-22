@@ -16,22 +16,22 @@ const pairs = ascii
   .map(code => ({ code, char: codestr(code) }))
   .concat({ code: 'number', char: 'string' })
 
-const ord = pairs
+const fnOrd = pairs
   .map(({ code, char }) => dclfn('ord', char, code))
   .join('\n')
 
-const chr = pairs
+const fnChr = pairs
   .map(({ code, char }) => dclfn('chr', code, char))
   .join('\n')
 
 const code = [
-  docstr(ord, [
+  docstr(fnOrd, [
     'Return the Unicode code point for one-character string',
     '@param {string} x A one-character string',
     '@returns {number} Code point of `x`'
   ]),
 
-  docstr(chr, [
+  docstr(fnChr, [
     'Return a Unicode string of one character with ordinal `x`',
     '@param {number} x An ordinal number between `0` and `0x10FFFF`',
     '@returns {string} A string of one character with ordinal `x`'
