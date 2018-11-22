@@ -1,6 +1,6 @@
 {
   "name": "typescript-char-code",
-  "version": "0.0.0",
+  "version": "0.0.1-rc",
   "description": "ord() and chr() with 256 specific overloads",
   "main": "index.js",
   "types": "index.d.ts",
