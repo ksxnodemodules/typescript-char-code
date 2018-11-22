@@ -1,25 +1,24 @@
 {
-  "name": "generated-types",
-  "version": "0.0.2",
-  "description": "Generated types for TypeScript",
+  "name": "typescript-char-code",
+  "version": "0.0.0",
+  "description": "ord() and chr() with 256 specific overloads",
   "main": "index.js",
   "types": "index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ksxnodemodules/generated-types.git"
+    "url": "git+https://github.com/ksxnodemodules/typescript-char-code.git"
   },
   "keywords": [
-    "types",
-    "typescript",
-    "union",
+    "ord",
+    "chr",
     "miscellaneous"
   ],
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ksxnodemodules/generated-types/issues"
+    "url": "https://github.com/ksxnodemodules/typescript-char-code/issues"
   },
-  "homepage": "https://github.com/ksxnodemodules/generated-types#readme",
+  "homepage": "https://github.com/ksxnodemodules/typescript-char-code#readme",
   "scripts": {
     "generate": "node generate.js",
     "build": "node generate.js",
