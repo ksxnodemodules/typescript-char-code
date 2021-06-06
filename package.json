@@ -26,6 +26,6 @@
   },
   "devDependencies": {
     "iter-tools": "^6.1.4",
-    "@types/node": "^10.12.10"
+    "@types/node": "^14.0.0"
   }
 }
