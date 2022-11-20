@@ -25,7 +25,7 @@
     "prepublishOnly": "node generate.js"
   },
   "devDependencies": {
-    "iter-tools": "^6.1.4",
+    "iter-tools": "^7.0.0",
     "@types/node": "^10.12.10"
   }
 }
